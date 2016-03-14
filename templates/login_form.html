@@ -1,0 +1,21 @@
+{% extends "wiki_base.html" %}
+{% block content %}
+	{% if users %}
+		{% for u in users %}
+		<div>
+			{{u.username}} : {{u.password}}
+		</div>
+		{% endfor %}
+	{% endif %}
+
+	<form method="post">
+		<label> Username:
+			<input type="text" name="username" value="{{ username }}"/> 
+		</label><br/>
+		<label> Password:
+			<input type="password" name="password" value=""/>
+		</label><br/>
+		<div style="color: red">{{error}}</div>
+		<input type="submit" value="Submit"/>
+	</form>
+{% endblock %}

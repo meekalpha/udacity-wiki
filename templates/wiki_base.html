@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/static/main.css" />
+	<title>Udacity Wiki!</title>
+</head>
+<body>
+	{% if user %}
+	<span class="toolbar">
+		<a href="/_edit/{{page_id}}" class="edit-link">edit</a> |
+		<a href="/" class="home-link">home</a> |
+		{{user.username}} <a href="/logout" class="logout-link">(logout)</a>
+	</span>
+	{% else %}
+	<span class="toolbar">
+		<a href="/login" class="login-link">login</a> |
+		<a href="/signup" class="signup-link">signup</a> |
+		<a href="/" class="home-link">home</a> 
+	</span>
+	{% endif %}
+	{% block content %}
+	{% endblock %}
+</body>
